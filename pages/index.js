@@ -34,9 +34,13 @@ export default function Home() {
         <QuizLogo />
         <Widget>
           <Widget.Header>
-            <h1 style={{ color: '#ffffff' }}>Timao</h1>
+            <h1 style={{ color: '#ffffff' }}>Sport Club Corinthians Paulista</h1>
           </Widget.Header>
           <Widget.Content>
+            <p>
+              Vamos ver se você conhece mesmo o Timão.
+              Divirta-se. Mas lembre... O Corinthians não é brincadeira
+            </p>
             <form onSubmit={function a(event) {
               event.preventDefault();
 
