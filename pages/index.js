@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import db from '../db.json';
-import { Widget } from '../src/components/Widget';
+import Widget from '../src/components/Widget';
 import Footer from '../src/components/Footer';
 import GithubCorner from '../src/components/GithubCorner';
 import { QuizBackground } from '../src/components/QuizBackground';
@@ -37,10 +37,11 @@ export default function Home() {
             <h1 style={{ color: '#ffffff' }}>Sport Club Corinthians Paulista</h1>
           </Widget.Header>
           <Widget.Content>
-            <p>
+            <Widget.Description>
               Vamos ver se você conhece mesmo o Timão.
               Divirta-se. Mas lembre... O Corinthians não é brincadeira
-            </p>
+            </Widget.Description>
+
             <form onSubmit={function a(event) {
               event.preventDefault();
 

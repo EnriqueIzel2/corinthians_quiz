@@ -1,6 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const Widget = styled.div`
+import db from '../../../db.json';
+
+const Widget = styled.div`
   margin-top: 24px;
   margin-bottom: 24px;
   border: 1px solid ${({ theme }) => theme.colors.primary};
@@ -48,3 +50,9 @@ Widget.Content = styled.div`
     padding: 0;
   }
 `;
+
+Widget.Description = styled.p`
+  color: ${db.theme.colors.contrastText} ;
+`;
+
+export default Widget;
