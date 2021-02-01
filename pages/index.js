@@ -1,25 +1,16 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import db from '../db.json';
+import QuizContainer from '../src/components/QuizContainer';
 import Widget from '../src/components/Widget';
 import Footer from '../src/components/Footer';
 import GithubCorner from '../src/components/GithubCorner';
-import { QuizBackground } from '../src/components/QuizBackground';
+import QuizBackground from '../src/components/QuizBackground';
 import QuizLogo from '../src/components/QuizLogo';
-
-export const QuizContainer = styled.div`
-  width: 100%;
-  max-width: 350px;
-  padding-top: 45px;
-  margin: auto 10%;
-  @media screen and (max-width: 500px) {
-    margin: auto;
-    padding: 15px;
-  }
-`;
+import Input from '../src/components/Input';
+import Button from '../src/components/Button';
 
 export default function Home() {
   const router = useRouter();
@@ -34,31 +25,33 @@ export default function Home() {
         <QuizLogo />
         <Widget>
           <Widget.Header>
-            <h1 style={{ color: '#ffffff' }}>Sport Club Corinthians Paulista</h1>
+            <h1 style={{ color: '#ffffff' }}>
+              Sport Club Corinthians Paulista
+            </h1>
           </Widget.Header>
           <Widget.Content>
             <Widget.Description>
-              Vamos ver se você conhece mesmo o Timão.
-              Divirta-se. Mas lembre... O Corinthians não é brincadeira
+              Vamos ver se você conhece mesmo o Timão. Divirta-se. Mas lembre...
+              O Corinthians não é brincadeira
             </Widget.Description>
 
-            <form onSubmit={function a(event) {
-              event.preventDefault();
+            <form
+              onSubmit={(event) => {
+                event.preventDefault();
 
-              router.push(`/quiz?name=${name}`);
-            }}
+                router.push(`/quiz?name=${name}`);
+              }}
             >
-              <input
+              <Input
+                name="nomeDoUsuario"
                 placeholder="Seu nome"
-                onChange={function namse(event) {
-                  setName(event.target.value);
-                }}
+                onChange={(event) => setName(event.target.value)}
+                value={name}
               />
-              <button type="submit" disabled={name.length === 0}>
-                Jogar
-                {' '}
-                {name}
-              </button>
+
+              <Button type="submit" disabled={name.length === 0}>
+                {`Jogar ${name}`}
+              </Button>
             </form>
           </Widget.Content>
         </Widget>
